@@ -1,0 +1,26 @@
+<%- include("./partials/header") -%>
+
+<section class="intro">
+    <h1 class="intro-title">Daily Journal</h1>
+    <p class="body-text">How do you feel today?</p>
+</section>
+
+<hr class="body-divider"/>
+
+<section class="blog">
+    <% logPosts.forEach(post => {%>
+        <div class="blog-post">
+            <h2 class="blog-title">
+                <a href="post/<%= post.id %>" class="blog-link"><%= post.title %></a>
+            </h2>
+            <hr class="content-divider">
+            <p class="blog-preview"><%= post.body.substr(0,120) %>...</p>
+            <a href="post/<%= post.id %>" class="blog-btn">
+                Read More
+                <i class="fas fa-chevron-right blog-btn-icon"></i>
+            </a>
+        </div>
+    <% }); %>
+</section>
+
+<%- include("./partials/footer") -%>
